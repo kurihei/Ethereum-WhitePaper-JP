@@ -5,7 +5,7 @@
 Satoshi Nakamotoが2009年1月にビットコインブロックチェインを最初に世に送り出した時、同時に二つの革命的な殆ど試験されていないコンセプトを示しました。一つは非中央集権なP2Pオンライン通貨であるビットコインで、それは何の後ろ盾も無く、[本質的な価値](http://bitcoinmagazine.com/8640/an-exploration-of-intrinsic-value-what-it-is-why-bitcoin-doesnt-have-it-and-why-bitcoin-does-have-it/) もなく、発行者もなく、価値を保持してるものです。これまでに通貨としてのビットコインは中央銀行がない通貨という政治的な観点からと、大きく上下する価格という観点から人々の注目を集めてきました。しかしながら、そこにはもう一つの、同じぐらい重要なSatoshiの大きな実験という役割がありました。: proof of workをベースとしたブロックチェインによって、トランザクションの順序を公的に合意するというコンセプトです。アプリケーションとしてのBitcoinは first-to-fileシステムとして描く事ができます。:もし一つのエンティティが50BTC持っており、同じ50BTCをAとBとに同時に送った時、最初に確定したトランザクションのみが実行されるということです。二つのトランザクションのうちどちらが先に行われたかを決定する本質的な方法はありません。これが数十年非中央集権なデジタル通貨の開発を邪魔していました。Satoshiのブロックチェインは最初の信頼できる非中央集権な解決法です。今、人々の注目はこのBitcoinの二つ目のパートに向かい始めました。どのようにブロックチェインのコンセプトを単なるお金以上のものに適用するかということです。
 
 
-良く引き合いに出されるアプリケーションとしては、ブロックチェイン上のデジタル資産をカスタム通貨や金融商品を表すために使用するもの([colored coins](https://docs.google.com/a/buterin.com/document/d/1AnkP_cVZTCMLIzw4DvsW6M8Q2JC0lIzrTLuoWu2z1BE/edit))、基礎となっている、実体のあるデバイスのオーナーシップを表すために使用するもの([smart property](htups://en.bitcoin.it/wiki/Smart_Property))、domain nameのような代替の効かない資産を表すために使用するもの(Namecoin)、等があります。さらに進んだアプリケーションとして、非中央集権な両替所、金融デリバティブ、P2Pギャンブル、ブロックチェイン上の個人認証と評判システム等があります。その他の調査すべき重要な分野は”smart contract”です - 先に決められた任意のルールに従ってデジタル資産を自動的に動かして行くシステムです。例えば以下のような公庫契約を結ぶとしましょう「Aは一日にXまで通貨を引き出せる。Bは一日にYまで通貨を引き出せる。AとBは一緒にいくらでも引き出せる。AはBの権利をシャットオフすることができる」。この論理的な拡張が [decentralized autonomous organizations](http://bitcoinmagazine.com/7050/bootstrapping-a-decentralized-autonomous-corporation-part-i/)(DAOs)です-それは、組織全体の資産と内規のエンコードを含む長期のsmart contractです。Ethereumが世の中に出そうとしているものは、完全に自立したチューリング完全なプログラミング言語をビルトインしたブロックチェインです。任意の状態繊維関数をエンコードしたcontractを創る事ができます。ユーザーは上に挙げた全てのシステムを創ることができます。さらに我々が未だ想像すらしていない他の物を単に少しの行数のコードを書く事で実現できます。
+良く引き合いに出されるアプリケーションとしては、ブロックチェイン上のデジタル資産をカスタム通貨や金融商品を表すために使用するもの([colored coins](https://docs.google.com/a/buterin.com/document/d/1AnkP_cVZTCMLIzw4DvsW6M8Q2JC0lIzrTLuoWu2z1BE/edit))、基礎となっている、実体のあるデバイスのオーナーシップを表すために使用するもの([smart property](htups://en.bitcoin.it/wiki/Smart_Property))、domain nameのような代替の効かない資産を表すために使用するもの(Namecoin)、等があります。さらに進んだアプリケーションとして、非中央集権な両替所、金融デリバティブ、P2Pギャンブル、ブロックチェイン上の個人認証と評判システム等があります。その他の調査すべき重要な分野は”smart contract”です - 先に決められた任意のルールに従ってデジタル資産を自動的に動かして行くシステムです。例えば以下のような公庫契約を結ぶとしましょう「Aは一日にXまで通貨を引き出せる。Bは一日にYまで通貨を引き出せる。AとBは一緒にいくらでも引き出せる。AはBの権利をシャットオフすることができる」。この論理的な拡張が [decentralized autonomous organizations](http://bitcoinmagazine.com/7050/bootstrapping-a-decentralized-autonomous-corporation-part-i/)(DAOs)です-それは、組織全体の資産と内規のエンコードを含む長期のsmart contractです。Ethereumが世の中に出そうとしているものは、完全に自立したチューリング完全なプログラミング言語をビルトインしたブロックチェインです。任意の状態遷移関数をエンコードしたcontractを創る事ができます。ユーザーは上に挙げた全てのシステムを創ることができます。さらに我々が未だ想像すらしていない他の物を単に少しの行数のコードを書く事で実現できます。
 
 
 ### Table of Contents
@@ -250,16 +250,7 @@ Ethereumのブロックチェインは多くの点でBitcoinのブロックチ�
 
 
 
-The Ethereum blockchain is in many ways similar to the Bitcoin blockchain, although it does have some differences. The main difference between Ethereum and Bitcoin with regard to the blockchain architecture is that, unlike Bitcoin, Ethereum blocks contain a copy of both the transaction list and the most recent state. Aside from that, two other values, the block number and the difficulty, are also stored in the block. The block validation algorithm in Ethereum is as follows:
 
-1. Check if the previous block referenced exists and is valid.
-2. Check that the timestamp of the block is greater than that of the referenced previous block and less than 15 minutes into the future
-3. Check that the block number, difficulty, transaction root, uncle root and gas limit (various low-level Ethereum-specific concepts) are valid.
-4. Check that the proof of work on the block is valid.
-5. Let `S[0]` be the `STATE_ROOT` of the previous block.
-6. Let `TX` be the block's transaction list, with `n` transactions. For all in in `0...n-1`, set `S[i+1] = APPLY(S[i],TX[i])`. If any applications returns an error, or if the total gas consumed in the block up until this point exceeds the `GASLIMIT`, return an error. 
-7. Let `S_FINAL` be `S[n]`, but adding the block reward paid to the miner.
-8. Check if `S_FINAL` is the same as the `STATE_ROOT`. If it is, the block is valid; otherwise, it is not valid.
 
 
 ## アプリケーション
